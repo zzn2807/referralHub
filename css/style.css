@@ -4,35 +4,108 @@
     font-family: 'Tinos', serif;
     box-sizing: border-box;
 }
-.motto-social, .foot {
-    background: #01874c;
-    padding: 15px 10px;
-    margin: -8px;
-    color: white;
+
+.motto-social, 
+.foot,
+.logo-nav, 
+.nav-ul, 
+.nav-ul li, 
+header,
+body,
+main,
+.times,
+form
+{
     display: flex;
-    justify-content: space-between;
 }
-.logo-nav, .nav-ul, .nav-ul li , header{
-    display: flex;
-}
-header {
+
+header,
+main,
+body,
+form{
     flex-direction: column;
 }
+
+.motto-social, 
+.foot,
+.logo-nav{
+    justify-content: space-between;    
+}
+
+.nav-ul li, h1, .time-slot {
+    text-align: center;
+}
+
+.nav-ul li,
+main,
+.times,
+form,
+header{
+    align-items: center;
+}
+
+.main,
+.times,
+form,
+.form-element,
+.nav-ul,
+.nav-ul li{
+    border-radius: 5px;
+}
+
+body,
+.times {
+    flex-wrap: wrap;
+}
+
+main,
+.times {
+    justify-content: center;
+}
+
+.nav,
+.nav-ul li,
+.nav-ul li a,
+main
+{
+    flex-grow: 1;
+}
+
+.motto-social, 
+.foot {
+    background: #01874c;
+    padding: 15px 10px;
+    color: white;
+    width: 100%;
+}
+
+body {
+    min-height: 100vh;
+}
+
+header {
+    margin: -8px;
+}
+
+a {
+    text-decoration: none;
+}
+
 .burger-menu {
     display: none;
 }
+
 .logo-nav {
     margin: 20px 0px 10px;
-    justify-content: space-between;
     max-width: 1500px;
     min-width: 90%;
-    align-self: center;
 }
+
 .nav{
-    flex-grow: 1;
     max-width: 1000px;
     font-weight: bold;
 }
+
 .nav-ul {
     list-style: none;
     font-size: 0.8rem;
@@ -40,18 +113,10 @@ header {
     padding-inline-start: 0px;
 }
 
-.nav-ul li {
-    flex: 1;
-    text-align: center;
-    align-items: center;
-    
-}
 
 .nav-ul li a {
-    text-decoration: none;
     color: inherit;
     display: block;
-    flex-grow: 1;
     padding: 15px 0px;
     
 
@@ -60,47 +125,21 @@ header {
     background-color: #eee;
     color: #01874c;
 }
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    flex-wrap:wrap;
-}
-main,.times {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.times{
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-main {
-    flex-grow: 1;
-}
+
+
 
 form {
-    display: flex;
-    flex-direction: column;
     background: #dddddd;
     flex-wrap: wrap;
     padding: 40px 5%;
     width: 70%;
     max-width: 700px;
-    border-radius: 5px;
-}
-form h1 {
-    align-self: center;
-    text-align: center;
 }
 
 .form-element {
     padding: 5px;
-    border-radius: 5px;
     margin: 5px;
-    min-width: 90%;
-    
+    min-width: 90%;  
 }
 
 .btn {
@@ -109,15 +148,13 @@ form h1 {
 
 .times h1 {
     flex-basis: 100%;
-    text-align: center;
 }
+
 .time-slot {
-    text-decoration: none;
     border: solid 2px #55cc66;
     color: #11aa11;
     border-radius: 45%;
     min-width: 20%;
-    text-align: center;
     padding: 20px 5px;
     margin: 10px;
     background: white;
@@ -134,7 +171,7 @@ form h1 {
     min-width: 50%;
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1100px){
     .nav {
         text-align: right;
     }
@@ -163,13 +200,10 @@ form h1 {
         z-index: 1;
         min-width: 100%;
         min-height: 25vh;
-        border-radius: 5px;
-        box-shadow: 2px 2px 5px;
-        
-        
+        box-shadow: 2px 2px 5px;   
     }
+
     .nav-ul li {
-        display: flex;
         margin: 0;
         align-items: center;
         justify-content: center;
