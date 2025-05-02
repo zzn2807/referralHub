@@ -7,11 +7,46 @@
 
     <body>
         <header>
-
+            <div class="motto-social">
+                <em>Providing Hope and Help to Families Since 1999</em>
+            </div>
+            <div class="logo-nav">
+                <img src="img/hhs_logo.png">
+                <nav class="nav">
+                <div class="burger-menu">&#8801;</div>
+                    <ul class="nav-ul">
+                        <li>HOME</li>
+                        <li>ABOUT US</li>
+                        <li>SERVICES</li>
+                        <li>RESOURCES</li>
+                        <li>EMPLOYMENT</li>
+                        <li>STAFF SUPPORT</li>
+                        <li>CONTACT US</li>
+                    </ul>
+                </nav>
+            </div>
         </header>
-
-        <footer>
-            
+        <main>
+            <form action="form.html" method="post">
+                <h1 class="form-element">About Patient</h1>
+                <label for="name" class="form-element">Name: </label>
+                <input type="text" id="name" name="user-name" class="form-element">
+                <label for="address" class="form-element">Address: </label>
+                <input type="text" id="address" name="user-address" class="form-element">
+                <label for="dob" class="form-element">Date of Birth: </label>
+                <input type="date" id="dob" name="user-dob" class="form-element">
+                <label for="ssn" class="form-element">SSN: </label>
+                <input type="text" id="ssn" name="user-ssn" class="form-element">
+                <label for="reason" class="form-element">Reason for Referral: </label>
+                <input type="text" id="reason" name="reason" class="form-element">
+                <label for="record" class="form-element">Records of treatment: </label>
+                <input type="textarea" id="record" name="user-record" class="form-element">
+                <button action="submit" class="form-element btn">Submit Form</button>
+            </form>
+        </main>
+        <footer class="foot">
+            <p>Copyright &copy; 2025 Hope Health Systems Inc.</p>
+            <p>In case of emergency &phone; 911</p>
         </footer>
     </body>
 </html>

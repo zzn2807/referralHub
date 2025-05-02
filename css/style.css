@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    font-family: 'Tinos', serif;
+}
+.motto-social, .foot {
+    background: #01874c;
+    padding: 15px 10px;
+    margin: -8px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+.logo-nav, .nav-ul {
+    display: flex;
+}
+.burger-menu {
+    display: none;
+}
+.logo-nav {
+    margin: 20px 0px 10px;
+    justify-content: space-between;
+}
+.nav{
+    flex-grow: 1;
+}
+.nav-ul {
+    list-style: none;
+    font-size: 0.8rem;
+    justify-content: flex-end;
+}
+
+.nav-ul li {
+    flex: 1;
+    text-align: center;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+main,.times {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+main {
+    flex-grow: 1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background: #dddddd;
+    flex-wrap: wrap;
+    padding: 40px 10%;
+    width: 70%;
+    border-radius: 5px;
+}
+form h1 {
+    align-self: center;
+}
+
+.form-element {
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+.time-slot {
+    text-decoration: none;
+    border: solid 1px;
+    border-radius: 50%;
+    padding: 20px 5px;
+    margin: 10px;
+}
+
+.times {
+    background-color: #dddddd;
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 50%;
+}
+
+@media screen and (max-width: 1024px){
+    .nav {
+        text-align: right;
+    }
+    .logo-nav {
+        position: relative;
+    }
+    .nav-ul {
+        display: none;
+        padding-bottom: 0;
+        
+    }
+    .burger-menu {
+        display: block;
+        font-size: 2.5rem;
+    }
+    
+    .burger-menu:hover+.nav-ul,.nav-ul:hover, .nav:hover .nav-ul{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        top: 60px;
+        background: #eee;
+        z-index: 1;
+        width: 100vw;
+        min-height: 25vh;
+        
+    }
+    .nav-ul li {
+        margin: 0;
+        align-self: center;
+    }
+
+}

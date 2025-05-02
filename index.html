@@ -7,21 +7,40 @@
 
     <body>
         <header>
-
+            <div class="motto-social">
+                <em>Providing Hope and Help to Families Since 1999</em>
+            </div>
+            <div class="logo-nav">
+                <img src="img/hhs_logo.png">
+                <nav class="nav">
+                <div class="burger-menu">&#8801;</div>
+                    <ul class="nav-ul">
+                        <li>HOME</li>
+                        <li>ABOUT US</li>
+                        <li>SERVICES</li>
+                        <li>RESOURCES</li>
+                        <li>EMPLOYMENT</li>
+                        <li>STAFF SUPPORT</li>
+                        <li>CONTACT US</li>
+                    </ul>
+                </nav>
+            </div>
         </header>
         <main>
-            <form action="time-slots.html" method="post">
-                <label for="service">Service:</label>
-                <select id="service" name="user-service">
+            <form action="time_slots.html" method="post">
+                <h1 class="form-element">Referral Hub Availability</h1>
+                <label for="service" class="form-element">Service:</label>
+                <select id="service" name="user-service" class="form-element">
                     <option>Individual Therapy</option>
                 </select>
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="user-date">
-                <button action="submit">Check Availability</button>
+                <label for="date" class="form-element">Date:</label>
+                <input type="date" id="date" name="user-date" class="form-element">
+                <button action="submit" class="form-element btn">Check Availability</button>
             </form>
         </main>
-        <footer>
-
+        <footer class="foot">
+            <p>Copyright &copy; 2025 Hope Health Systems Inc.</p>
+            <p>In case of emergency &phone; 911</p>
         </footer>
     </body>
 </html>
