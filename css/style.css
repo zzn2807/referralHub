@@ -2,6 +2,7 @@
 
 * {
     font-family: 'Tinos', serif;
+    box-sizing: border-box;
 }
 .motto-social, .foot {
     background: #01874c;
@@ -28,6 +29,7 @@
     list-style: none;
     font-size: 0.8rem;
     justify-content: flex-end;
+    padding-inline-start: 0px;
 }
 
 .nav-ul li {
@@ -35,6 +37,10 @@
     text-align: center;
 }
 
+.nav-ul li:hover{
+    background-color: #eee;
+    color: #01874c;
+}
 body {
     min-height: 100vh;
     display: flex;
@@ -118,25 +124,34 @@ form h1 {
         
     }
     .burger-menu {
-        display: block;
+        display: inline-block;
         font-size: 2.5rem;
+        height: 100%;
+        padding-left: 30px;
     }
     
-    .burger-menu:hover+.nav-ul,.nav-ul:hover, .nav:hover .nav-ul{
+    .burger-menu:hover+.nav-ul,.nav-ul:hover{
         display: flex;
         flex-direction: column;
         position: absolute;
         left: 0;
         top: 60px;
-        background: #eee;
+        background: #fff;
         z-index: 1;
-        width: 100vw;
+        min-width: 100%;
         min-height: 25vh;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px;
+        
         
     }
     .nav-ul li {
+        display: flex;
         margin: 0;
-        align-self: center;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid #ddd;
+        padding: 15px 0px;
     }
 
 }
