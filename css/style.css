@@ -12,8 +12,11 @@
     display: flex;
     justify-content: space-between;
 }
-.logo-nav, .nav-ul, .nav-ul li {
+.logo-nav, .nav-ul, .nav-ul li , header{
     display: flex;
+}
+header {
+    flex-direction: column;
 }
 .burger-menu {
     display: none;
@@ -21,9 +24,14 @@
 .logo-nav {
     margin: 20px 0px 10px;
     justify-content: space-between;
+    max-width: 1500px;
+    min-width: 90%;
+    align-self: center;
 }
 .nav{
     flex-grow: 1;
+    max-width: 1000px;
+    font-weight: bold;
 }
 .nav-ul {
     list-style: none;
@@ -44,6 +52,8 @@
     color: inherit;
     display: block;
     flex-grow: 1;
+    padding: 15px 0px;
+    
 
 }
 .nav-ul li:hover{
@@ -75,18 +85,22 @@ form {
     flex-direction: column;
     background: #dddddd;
     flex-wrap: wrap;
-    padding: 40px 10%;
+    padding: 40px 5%;
     width: 70%;
+    max-width: 700px;
     border-radius: 5px;
 }
 form h1 {
     align-self: center;
+    text-align: center;
 }
 
 .form-element {
     padding: 5px;
     border-radius: 5px;
     margin: 5px;
+    min-width: 90%;
+    
 }
 
 .btn {
@@ -160,7 +174,7 @@ form h1 {
         align-items: center;
         justify-content: center;
         border-bottom: 1px solid #ddd;
-        padding: 15px 0px;
+        
     }
 
 }
