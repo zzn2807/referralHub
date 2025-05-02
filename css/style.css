@@ -35,8 +35,15 @@
 .nav-ul li {
     flex: 1;
     text-align: center;
+    
 }
 
+.nav-ul li a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+
+}
 .nav-ul li:hover{
     background-color: #eee;
     color: #01874c;
@@ -127,7 +134,7 @@ form h1 {
         display: inline-block;
         font-size: 2.5rem;
         height: 100%;
-        padding-left: 30px;
+        padding-left: 100px;
     }
     
     .burger-menu:hover+.nav-ul,.nav-ul:hover{
