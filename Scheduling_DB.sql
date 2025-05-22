@@ -6,7 +6,8 @@ CREATE TABLE SCHEDULING_DB.therapists (
     first_name varchar(255),
     last_name varchar(255),
     email varchar(255) DEFAULT NULL,
-    phone char(10) DEFAULT NULL
+    phone char(10) DEFAULT NULL,
+    service varchar(255)
 );
 
 CREATE TABLE SCHEDULING_DB.therapist_schedule (
@@ -21,9 +22,9 @@ CREATE TABLE SCHEDULING_DB.therapist_schedule (
 );
 
 INSERT INTO SCHEDULING_DB.therapists 
-(first_name, last_name, email, phone)
-VALUES	('Jane','Doe','janedoe@hopehealthsystems.com','5555555555'),
-		('John','Doe', 'johndoe@hopehealthsystems.com','1111111111');
+(first_name, last_name, email, phone,service)
+VALUES	('Jane','Doe','janedoe@hopehealthsystems.com','5555555555','Individual Therapy'),
+		('John','Doe', 'johndoe@hopehealthsystems.com','1111111111', 'Individual Therapy');
         
 INSERT INTO SCHEDULING_DB.therapist_schedule 
 (therapist_id, app_date, start_time, end_time)

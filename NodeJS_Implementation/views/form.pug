@@ -1,0 +1,21 @@
+extends layout.pug
+
+block content
+    main
+        form.form(action='/form_submit' method='post')
+            h1.form-element About Patient
+            label.form-element(for='name') Name: 
+            input#name.form-element(type='text' name='user-name')
+            label.form-element(for='address') Address: 
+            input#address.form-element(type='text' name='user-address')
+            label.form-element(for='dob') Date of Birth: 
+            input#dob.form-element(type='date' name='user-dob')
+            label.form-element(for='ssn') SSN: 
+            input#ssn.form-element(type='text' name='user-ssn')
+            label.form-element(for='reason') Reason for Referral: 
+            input#reason.form-element(type='text' name='reason')
+            label.form-element(for='record') Records of treatment: 
+            input#record.form-element(type='textarea' name='user-record')
+            label.form-element(for='file-record') You can upload records here as well:
+            input#file-record.form-element(type='file' name='user-file-record' multiple='')
+            button.form-element.btn(action='submit'  name='slot' value=slot) Submit Form

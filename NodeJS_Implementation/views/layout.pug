@@ -1,0 +1,30 @@
+doctype html
+html
+    head
+        title Referral Hub
+        link(rel='stylesheet' href='/static/css/style.css')
+    body
+        header
+            .motto-social
+                em Providing Hope and Help to Families Since 1999
+            .logo-nav
+                img(src='/static/img/hhs_logo.png')
+                nav.nav
+                    .burger-menu &equiv;
+                    ul.nav-ul
+                        li
+                            a(href='/') HOME
+                        li
+                            a(href='#') ABOUT US
+                        li
+                            a(href='#') SERVICES
+                        li
+                            a(href='#') RESOURCES
+                        li
+                            a(href='#') EMPLOYMENT
+                        li
+                            a(href='#') STAFF SUPPORT
+                        li
+                            a(href='#') CONTACT US
+        block content
+        include includes/footer.pug

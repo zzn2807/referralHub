@@ -3,6 +3,7 @@
 * {
     font-family: 'Tinos', serif;
     box-sizing: border-box;
+    margin: 0px;
 }
 
 .motto-social, 
@@ -14,7 +15,8 @@ header,
 body,
 main,
 .times,
-form
+.therapist,
+.form
 {
     display: flex;
 }
@@ -22,7 +24,8 @@ form
 header,
 main,
 body,
-form{
+.form,
+.times{
     flex-direction: column;
 }
 
@@ -39,14 +42,14 @@ form{
 .nav-ul li,
 main,
 .times,
-form,
+.form,
 header{
     align-items: center;
 }
 
 .main,
 .times,
-form,
+.form,
 .form-element,
 .nav-ul,
 .nav-ul li{
@@ -54,12 +57,11 @@ form,
 }
 
 body,
-.times {
+.therapist {
     flex-wrap: wrap;
 }
 
-main,
-.times {
+main{
     justify-content: center;
 }
 
@@ -83,9 +85,7 @@ body {
     min-height: 100vh;
 }
 
-header {
-    margin: -8px;
-}
+
 
 a {
     text-decoration: none;
@@ -128,12 +128,13 @@ a {
 
 
 
-form {
+.form {
     background: #dddddd;
     flex-wrap: wrap;
     padding: 40px 5%;
     width: 70%;
     max-width: 700px;
+    box-shadow:  0px 0px 3px black;
 }
 
 .form-element {
@@ -146,22 +147,20 @@ form {
     margin-top: 20px;
 }
 
-.times h1 {
-    flex-basis: 100%;
-}
 
 .time-slot {
     border: solid 2px #55cc66;
-    color: #11aa11;
-    border-radius: 45%;
+    color: white;
+    border-radius: 10px;
     min-width: 20%;
-    padding: 20px 5px;
-    margin: 10px;
-    background: white;
+    padding: 20px 0px;
+    margin: 5px;
+    background: #55cc66;
+    box-shadow:  0px 0px 3px green;
 }
 
 .time-slot:hover {
-    background-color: #f1f2f3;
+    background-color: #33aa44;
 }
 
 .times {
@@ -169,8 +168,37 @@ form {
     border-radius: 10px;
     padding: 20px;
     min-width: 50%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 50vh;
+    box-shadow:  0px 0px 3px black;
 }
 
+
+.therapist {
+    background-color: #cccccc;
+    width: 100%;
+    justify-content: center;
+    gap: 5px;
+    
+    padding: 10px;
+}
+
+.therapist:nth-child(n+1){
+    box-shadow:  inset 2px 0px 2px -2px black,inset -2px 0px 2px -2px black;
+}
+.therapist:nth-child(1){
+    box-shadow:  inset 0px 2px 3px -1px black,inset 2px 0px 2px -2px black,inset -2px 0px 2px -2px black;
+    border-radius: 5px 5px 0px 0px;
+}
+.therapist:last-child{
+    box-shadow:  inset 0px -2px 3px -1px black,inset 2px 0px 2px -2px black,inset -2px 0px 2px -2px black;
+    border-radius: 0px 0px 5px 5px;
+}
+.therapist label {
+    flex-basis: 100%;
+    font-weight: bold;
+}
 @media screen and (max-width: 1100px){
     .nav {
         text-align: right;

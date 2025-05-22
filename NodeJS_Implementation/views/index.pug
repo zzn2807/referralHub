@@ -1,0 +1,13 @@
+extends layout.pug
+
+block content
+    main
+        form.form(action='/time_slots' method='post')
+            h1.form-element Referral Hub Availability
+            label.form-element(for='service') Service:
+            select#service.form-element(name='user-service')
+                each service in services
+                    option= service
+            label.form-element(for='date') Date:
+            input#date.form-element(type='date' name='user-date')
+            button.form-element.btn(type='submit') Check Availability

@@ -1,0 +1,11 @@
+extends layout.pug
+block content
+    main
+        h1 Available Times:
+        .times
+            if Object.keys(available_times).length>0
+                each therapist of Object.keys(available_times)
+                    form.therapist(action='/form' method='post')
+                        label #{therapist}:
+                        each slot of available_times[therapist]
+                            button.time-slot(type='submit' name='slot' value=slot)= `${slot.start_time}-${slot.end_time}`
