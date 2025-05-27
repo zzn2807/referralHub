@@ -1,0 +1,22 @@
+extends layout.pug
+
+block content
+    main
+        form.form(action='/therapists' method='post')
+            h1.form-element Add/Update/Delete Therapist Information
+            label.form-element(for='action') Action:
+            select#action.form-element(name='user-action')
+                option Add 
+                option Update 
+                Option Delete
+            label.form-element(for='first-name') First Name:
+            input#first-name.form-element(type='text' name='first-name')
+            label.form-element(for='last-name') Last Name:
+            input#last-name.form-element(type='text' name='last-name')
+            label.form-element(for='email') Email:
+            input#email.form-element(type='email' name='therapist-email')
+            label.form-element(for='phone') Phone No.:
+            input#first-name.form-element(type='tel' pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name='therapist-phone')
+            label.form-element(for='service') Service:
+            input#first-name.form-element(type='text' name='therapist-service')
+            button.form-element.btn(type='submit') Submit Change

@@ -95,9 +95,11 @@ where service = '${service}' and therapist_schedule.booked = 0 and app_date = '$
         
         slot.start_time = start_time;
         slot.end_time = end_time;
+        //If this is a slot belonging to a therapist already in the dictionary, add the slot to the therapist
         if(available_times.hasOwnProperty(name)){
             available_times[name].push(slot);
         }
+        //If this is a new therapist being added to the dictionary, add them then add the slot
         else{
             available_times[name] = [];
             available_times[name].push(slot);
