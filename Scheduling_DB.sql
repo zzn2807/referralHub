@@ -24,7 +24,8 @@ CREATE TABLE SCHEDULING_DB.therapist_schedule (
 INSERT INTO SCHEDULING_DB.therapists 
 (first_name, last_name, email, phone,service)
 VALUES	('Jane','Doe','janedoe@hopehealthsystems.com','5555555555','Individual Therapy'),
-		('John','Doe', 'johndoe@hopehealthsystems.com','1111111111', 'Individual Therapy');
+		('John','Doe', 'johndoe@hopehealthsystems.com','1111111111', 'Individual Therapy'),
+        ('Sarah','Parker', 'sparker@hopehealthsystems.com','1231231234', 'Psychiatry');
         
 INSERT INTO SCHEDULING_DB.therapist_schedule 
 (therapist_id, app_date, start_time, end_time)
@@ -43,4 +44,12 @@ VALUES	(1,'2025-05-16','09:00:00','10:00:00'),
         (2,'2025-05-16','13:00:00','14:00:00'),
         (2,'2025-05-16','14:00:00','15:00:00'),
         (2,'2025-05-16','15:00:00','16:00:00'),
-        (2,'2025-05-16','16:00:00','17:00:00');
+        (2,'2025-05-16','16:00:00','17:00:00'),
+        (3,'2025-05-16','09:00:00','10:00:00'),
+		(3,'2025-05-16','10:00:00','11:00:00'),
+        (3,'2025-05-16','11:00:00','12:00:00'),
+        (3,'2025-05-16','12:00:00','13:00:00'),
+        (3,'2025-05-16','13:00:00','14:00:00'),
+        (3,'2025-05-16','14:00:00','15:00:00'),
+        (3,'2025-05-16','15:00:00','16:00:00'),
+        (3,'2025-05-16','16:00:00','17:00:00');

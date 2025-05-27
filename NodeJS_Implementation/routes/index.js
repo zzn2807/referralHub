@@ -1,9 +1,23 @@
 const express = require('express');
+const nodemailer = require("nodemailer");
 const router = express.Router();
 const scheduling_db = require('../models/scheduling_db');
 const {therapists} = scheduling_db.models;
 const {therapist_schedule} = scheduling_db.models;
+const {user, pass} = require('../env');
 
+
+
+// Create a test account or replace with real credentials.
+const transporter = nodemailer.createTransport({
+    host: "smtp-mail.outlook.com",
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: user,
+      pass: pass,
+    },
+  });
 //Helper functions
 function timeConvert24to12(time){
     //Convert database 24 hour format to more user friendly 12 hour format
@@ -14,7 +28,34 @@ function timeConvert12to24(time){
     time = time.toUpperCase();
     return `${time.includes("PM")?(+time.split(':')[0]%12+12).toString().padStart(2,'0'):(+time.split(':')[0]%12).toString().padStart(2,'0')}:${time.split(':')[1].slice(0,2)}:00`;
 }
-
+function parseBody(body){
+    let html = '<h1>Client Information</h1>\n';
+    body.slot = JSON.parse(body.slot);
+    let keyConv = {
+        'user-name': `Client's Name`,
+        'user-address': `Client's Address`,
+        'user-dob': `Client's Date of Birth`,
+        'user-ssn': `Client's SSN`,
+        'reason': `Client's Reason for Visiting`,
+        'user-record': `Client's Medical Record`,
+        'user-file-record': `Client's Medical Record (File)`,
+        'first_name': `Therapist's First Name`,
+        'last_name': `Therapist's Last Name`,
+        'start_time': `Appointment Start Time`,
+        'end_time': `Appointment End Time`,
+        'app_date': `Appointment Date`
+    }
+    for(key of Object.keys(body)){
+        if(key!=='slot'){
+            html+= `<p>${keyConv[key]}: ${body[key]}</p>\n`;
+        }
+    }
+    html += '<h1>Appointment Details</h1>\n'
+    for(key of Object.keys(body.slot)){
+        html+= `<p>${keyConv[key]}: ${body.slot[key]}</p>\n`;
+    }
+    return html;
+}
 //Routes
 router.get('/',(req,res)=>{
     //Find all possible services provided by the therapists and list them in a select menu
@@ -79,7 +120,19 @@ router.post('/form',(req,res)=>{
 
 //Read all form info submitted including time slot selected
 router.post('/form_submit',(req,res)=>{
-    console.log(req.body);
+    // Wrap in an async IIFE so we can use await.
+    (async () => {
+        const info = await transporter.sendMail({
+        from: '"Referral Hub" <dnwokolo@hopehealthsystems.com>',
+        to: "nwokolodz@gmail.com",
+        subject: "Referral Hub Form Submission",
+        // text: "Hello world?", // plain‑text body
+        html: parseBody(req.body), // HTML body
+        });
+    
+        console.log("Message sent:", info.messageId);
+    })();
+    console.log(req.file);
     res.render('thanks');
 });
 
