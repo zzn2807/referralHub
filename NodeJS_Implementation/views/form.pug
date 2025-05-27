@@ -2,7 +2,7 @@ extends layout.pug
 
 block content
     main
-        form.form(action='/form_submit' method='post')
+        form.form(action='/form_submit' method='post' enctype="multipart/form-data")
             h1.form-element About Patient
             label.form-element(for='name') Name: 
             input#name.form-element(type='text' name='user-name')

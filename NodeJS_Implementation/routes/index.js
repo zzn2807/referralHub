@@ -5,7 +5,8 @@ const scheduling_db = require('../models/scheduling_db');
 const {therapists} = scheduling_db.models;
 const {therapist_schedule} = scheduling_db.models;
 const {user, pass} = require('../env');
-
+const fs = require('fs');
+const busboy = require('connect-busboy');
 
 
 // Create a test account or replace with real credentials.
@@ -120,20 +121,62 @@ router.post('/form',(req,res)=>{
 
 //Read all form info submitted including time slot selected
 router.post('/form_submit',(req,res)=>{
-    // Wrap in an async IIFE so we can use await.
-    (async () => {
-        const info = await transporter.sendMail({
-        from: '"Referral Hub" <dnwokolo@hopehealthsystems.com>',
-        to: "nwokolodz@gmail.com",
-        subject: "Referral Hub Form Submission",
-        // text: "Hello world?", // plain‑text body
-        html: parseBody(req.body), // HTML body
+    let body = {};
+    let attachments = [];
+    //Path where files will be uploaded
+    let path = __dirname + '/files/';
+    if (!fs.existsSync(path)){
+        fs.mkdirSync(path);
+    }
+    else{
+        fs.rmdirSync(path,{recursive: true});
+        fs.mkdirSync(path);
+    }
+    if(req.busboy){
+        let fstream;
+        req.pipe(req.busboy);
+        req.busboy.on('file', function (fieldname, file, filename) {
+            //Only add attachments if files exist to attach
+            if(filename.filename){
+                attachments.push({
+                    filename: filename.filename,
+                    path: path + filename.filename
+                });
+            }
+                console.log("Uploading: " + filename.filename);
+                fstream = fs.createWriteStream(path + filename.filename);
+                file.pipe(fstream);
+                fstream.on('close', function () {    
+                    console.log("Upload Finished of " + filename.filename);               
+                });
+            
+            
         });
+        req.busboy.on('field',(name,value,info)=>{
+            body[name] = value;
+            // console.log(`${name}: ${value}`);
+        });
+        req.busboy.on('finish',()=>{
+            console.log(body);
+            // Wrap in an async IIFE so we can use await.
+            (async () => {
+                const info = await transporter.sendMail({
+                from: '"Referral Hub" <dnwokolo@hopehealthsystems.com>',
+                to: "nwokolodz@gmail.com",
+                subject: "Referral Hub Form Submission",
+                // text: "Hello world?", // plain‑text body
+                html: parseBody(body), // HTML body
+                attachments: attachments
+                });
+            
+                console.log("Message sent:", info.messageId);
+                fs.rm(path,{recursive: true},()=>{console.log('File path deleted!')});
+            })();
+        
+            res.render('thanks');
+        })
+    }
     
-        console.log("Message sent:", info.messageId);
-    })();
-    console.log(req.file);
-    res.render('thanks');
 });
 
 module.exports = router;
