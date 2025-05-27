@@ -124,7 +124,7 @@ router.post('/form_submit',(req,res)=>{
     let body = {};
     let attachments = [];
     //Path where files will be uploaded
-    let path = __dirname + '/files/';
+    let path = __dirname + `/files_${Date.now()}/`;
     if (!fs.existsSync(path)){
         fs.mkdirSync(path);
     }
