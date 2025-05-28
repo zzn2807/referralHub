@@ -4,33 +4,54 @@ block content
     main
         if msg  
             span(class= msgType)= msg
-        form.form(action='/therapists' method='post')
-            h1.form-element Add/Update/Delete Therapist Information
-            label.form-element(for='action') Action:
-            select#action.form-element(name='user-action')
-                option Add 
-                option Update 
-                Option Delete
-            label.form-element(for='first-name') First Name:
-            div.flex.form-element.no-margin.no-padding
-                input#first-name.form-element.flex-grow(type='text' name='first_name')
-                input#first-name-check.flex-grow.checkbox.hidden(type='checkbox' name='first-name-check')
-            label.form-element(for='last-name') Last Name:
-            div.flex.form-element.no-margin.no-padding
-                input#last-name.form-element.flex-grow(type='text' name='last_name')
-                input#last-name-check.flex-grow.checkbox.hidden(type='checkbox' name='last-name-check')
-            label.form-element(for='email') Email:
-            div.flex.form-element.no-margin.no-padding
-                input#email.form-element.flex-grow(type='email' name='email')
-                input#email-check.flex-grow.checkbox.hidden(type='checkbox' name='email-check')
-            label.form-element(for='phone') Phone No.:
-            div.flex.form-element.no-margin.no-padding
-                input#first-name.form-element.flex-grow(type='tel' pattern="[0-9]{3}[0-9]{3}[0-9]{4}" name='phone')
-                input#phone-check.flex-grow.checkbox.hidden(type='checkbox' name='phone-check')
-            label.form-element(for='service') Service:
-            div.flex.form-element.no-margin.no-padding
-                input#first-name.form-element.flex-grow(type='text' name='service')
-                input#service-check.flex-grow.checkbox.hidden(type='checkbox' name='service-check')
-            button.form-element.btn(type='submit') Submit Change
-            script
-                include ./scripts/therapist.js
+        if !view
+            form.form(action='/therapists' method='post')
+                h1.form-element Manage Therapist Information
+                label.form-element(for='action') Action:
+                select#action.form-element(name='user-action')
+                    option Add 
+                    option Update 
+                    option Delete
+                    option View
+                label.form-element(for='first-name') First Name:
+                div.flex.form-element.no-margin.no-padding
+                    input#first-name.form-element.flex-grow(type='text' name='first_name')
+                    input#first-name-check.flex-grow.checkbox.hidden(type='checkbox' name='first_name-check')
+                label.form-element(for='last-name') Last Name:
+                div.flex.form-element.no-margin.no-padding
+                    input#last-name.form-element.flex-grow(type='text' name='last_name')
+                    input#last-name-check.flex-grow.checkbox.hidden(type='checkbox' name='last_name-check')
+                label.form-element(for='email') Email:
+                div.flex.form-element.no-margin.no-padding
+                    input#email.form-element.flex-grow(type='email' name='email')
+                    input#email-check.flex-grow.checkbox.hidden(type='checkbox' name='email-check')
+                label.form-element(for='phone') Phone No.:
+                div.flex.form-element.no-margin.no-padding
+                    input#first-name.form-element.flex-grow(type='tel' pattern="[0-9]{3}[0-9]{3}[0-9]{4}" name='phone')
+                    input#phone-check.flex-grow.checkbox.hidden(type='checkbox' name='phone-check')
+                label.form-element(for='service') Service:
+                div.flex.form-element.no-margin.no-padding
+                    input#first-name.form-element.flex-grow(type='text' name='service')
+                    input#service-check.flex-grow.checkbox.hidden(type='checkbox' name='service-check')
+                button.form-element.btn(type='submit') Submit Change
+                script
+                    include ./scripts/therapist.js
+        else 
+            div(style="overflow-y: auto; max-height: 50vh")
+                table 
+                    tr 
+                        th ID 
+                        th First Name 
+                        th Last Name 
+                        th Email 
+                        th Phone 
+                        th Service
+                    each row in view 
+                        tr 
+                            td= row.id 
+                            td= row.first_name 
+                            td= row.last_name 
+                            td= row.email 
+                            td= row.phone 
+                            td= row.service
+            a(href='/therapists') Return

@@ -10,6 +10,7 @@ let action = document.querySelector('#action');
         }
         else{  
             for(let box of checkboxes){
+                box.checked = false;
                 box.classList.add('hidden');
             }
         }
