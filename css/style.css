@@ -16,7 +16,8 @@ body,
 main,
 .times,
 .therapist,
-.form
+.form,
+.flex
 {
     display: flex;
 }
@@ -46,6 +47,7 @@ main,
 header{
     align-items: center;
 }
+
 
 .main,
 .times,
@@ -174,6 +176,37 @@ a {
     box-shadow:  0px 0px 3px black;
 }
 
+.no-margin{
+    margin: 0px;
+}
+
+.no-padding{
+    padding: 0px;
+}
+
+.flex-grow{
+    flex-grow: 1;
+}
+.hidden {
+    display:none;
+}
+.rounded-corners{
+    border-radius: 5px;
+}
+.checkbox{   
+    margin: 5px;
+}
+.posMsg{
+    background-color: #55cc66;
+    border: 1px solid #01874c;
+    border-radius: 5px;
+    width: 70%;
+    max-width: 700px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+    font-weight: bold; 
+}
 
 .therapist {
     background-color: #cccccc;

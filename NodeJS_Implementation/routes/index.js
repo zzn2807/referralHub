@@ -20,6 +20,10 @@ const transporter = nodemailer.createTransport({
     },
   });
 //Helper functions
+function capitalize(string){
+    let capString = string.length>1?string[0].toUpperCase()+string.substring(1,string.length):string.toUpperCase();
+    return capString;
+}
 function timeConvert24to12(time){
     //Convert database 24 hour format to more user friendly 12 hour format
     return `${+time.split(':')[0]>12?+time.split(':')[0]-12:+time.split(':')[0]}:${time.split(':')[1]}:${+time.split(':')[0]>=12?'PM':'AM'}`;
@@ -32,28 +36,15 @@ function timeConvert12to24(time){
 function parseBody(body){
     let html = '<h1>Client Information</h1>\n';
     body.slot = JSON.parse(body.slot);
-    let keyConv = {
-        'user-name': `Client's Name`,
-        'user-address': `Client's Address`,
-        'user-dob': `Client's Date of Birth`,
-        'user-ssn': `Client's SSN`,
-        'reason': `Client's Reason for Visiting`,
-        'user-record': `Client's Medical Record`,
-        'user-file-record': `Client's Medical Record (File)`,
-        'first_name': `Therapist's First Name`,
-        'last_name': `Therapist's Last Name`,
-        'start_time': `Appointment Start Time`,
-        'end_time': `Appointment End Time`,
-        'app_date': `Appointment Date`
-    }
+    
     for(key of Object.keys(body)){
         if(key!=='slot'){
-            html+= `<p>${keyConv[key]}: ${body[key]}</p>\n`;
+            html+= `<p>${key.split('-').join(' ').toUpperCase()}: ${body[key]}</p>\n`;
         }
     }
-    html += '<h1>Appointment Details</h1>\n'
+    html += '<h1>Therapist/Appointment Details</h1>\n'
     for(key of Object.keys(body.slot)){
-        html+= `<p>${keyConv[key]}: ${body.slot[key]}</p>\n`;
+        html+= `<p>${key.split('_').join(' ').toUpperCase()}: ${body.slot[key]}</p>\n`;
     }
     return html;
 }
@@ -86,13 +77,13 @@ where service = '${service}' and therapist_schedule.booked = 0 and app_date = '$
     //Configure the resulting data into key value pairs where the keys are the therapists and the values are their free slots
     let available_times = {};
     for(slot of result){
-        let name = `${slot.first_name} ${slot.last_name}`;
+        let name = `${slot.first_name} ${slot.last_name}`; 
         let start_time = slot.start_time;
         let end_time = slot.end_time;
-        //Convert slot times to 12 hour format
-        start_time = timeConvert24to12(start_time);
+        //Convert slot times to 12 hour format  
+        start_time = timeConvert24to12(start_time); 
         end_time = timeConvert24to12(end_time);
-        
+          
         slot.start_time = start_time;
         slot.end_time = end_time;
         //If this is a slot belonging to a therapist already in the dictionary, add the slot to the therapist

@@ -8,7 +8,7 @@ const sequelize = new Sequelize(
         host: '172.24.240.1',//Get host from which db will be accessed
         dialect: 'mysql',
         port: 3306//get db port
-    }
+    } 
 );
 sequelize.models = require('./init-models.js')(sequelize);
 

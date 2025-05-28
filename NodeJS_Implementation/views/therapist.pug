@@ -2,6 +2,8 @@ extends layout.pug
 
 block content
     main
+        if msg  
+            span(class= msgType)= msg
         form.form(action='/therapists' method='post')
             h1.form-element Add/Update/Delete Therapist Information
             label.form-element(for='action') Action:
@@ -10,13 +12,25 @@ block content
                 option Update 
                 Option Delete
             label.form-element(for='first-name') First Name:
-            input#first-name.form-element(type='text' name='first-name')
+            div.flex.form-element.no-margin.no-padding
+                input#first-name.form-element.flex-grow(type='text' name='first_name')
+                input#first-name-check.flex-grow.checkbox.hidden(type='checkbox' name='first-name-check')
             label.form-element(for='last-name') Last Name:
-            input#last-name.form-element(type='text' name='last-name')
+            div.flex.form-element.no-margin.no-padding
+                input#last-name.form-element.flex-grow(type='text' name='last_name')
+                input#last-name-check.flex-grow.checkbox.hidden(type='checkbox' name='last-name-check')
             label.form-element(for='email') Email:
-            input#email.form-element(type='email' name='therapist-email')
+            div.flex.form-element.no-margin.no-padding
+                input#email.form-element.flex-grow(type='email' name='email')
+                input#email-check.flex-grow.checkbox.hidden(type='checkbox' name='email-check')
             label.form-element(for='phone') Phone No.:
-            input#first-name.form-element(type='tel' pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name='therapist-phone')
+            div.flex.form-element.no-margin.no-padding
+                input#first-name.form-element.flex-grow(type='tel' pattern="[0-9]{3}[0-9]{3}[0-9]{4}" name='phone')
+                input#phone-check.flex-grow.checkbox.hidden(type='checkbox' name='phone-check')
             label.form-element(for='service') Service:
-            input#first-name.form-element(type='text' name='therapist-service')
+            div.flex.form-element.no-margin.no-padding
+                input#first-name.form-element.flex-grow(type='text' name='service')
+                input#service-check.flex-grow.checkbox.hidden(type='checkbox' name='service-check')
             button.form-element.btn(type='submit') Submit Change
+            script
+                include ./scripts/therapist.js
