@@ -61,28 +61,28 @@ async function scheduleHandler(table, data){
         for(let day of days){
             for(let slot of slots){
                 //Look for overlapping slots
-                let overlap = await table.findAll({
-                    where: {
-                        app_date: day,
-                        [Op.or]: [
-                            {
-                                [Op.and]: [{start_time:{[Op.lte]: slot.start_time}},{end_time:{[Op.gt]: slot.start_time}}]
-                            },
-                            {
-                                [Op.and]: [{start_time:{[Op.lte]: slot.end_time}},{end_time:{[Op.gt]: slot.end_time}}]
-                            }
-                        ]
-                    }
-                });
-                if(overlap.length===0){
-                    slot = {app_date: day, ...slot};
-                    let newSlot = table.build(slot);
-                    console.log(JSON.stringify(newSlot));
-                    // newSlot.save();
-                }
-                else{
-                    msg = {msg:'Some of the slots you created overlap with others that exist so were not added.', msgType:'negMsg'};
-                }
+                // let overlap = await table.findAll({
+                //     where: {
+                //         app_date: day,
+                //         [Op.or]: [
+                //             {
+                //                 [Op.and]: [{start_time:{[Op.lte]: slot.start_time}},{end_time:{[Op.gt]: slot.start_time}}]
+                //             },
+                //             {
+                //                 [Op.and]: [{start_time:{[Op.lte]: slot.end_time}},{end_time:{[Op.gt]: slot.end_time}}]
+                //             }
+                //         ]
+                //     }
+                // });
+                // if(overlap.length===0){
+                //     slot = {app_date: day, ...slot};
+                //     let newSlot = table.build(slot);
+                //     console.log(JSON.stringify(newSlot));
+                //     // newSlot.save();
+                // }
+                // else{
+                //     msg = {msg:'Some of the slots you created overlap with others that exist so were not added.', msgType:'negMsg'};
+                // }
             }
         }
     }
@@ -221,6 +221,14 @@ router.post('/schedule/:id',(req,res)=>{
             res.render('schedule',msg);
         }
     });
+});
+
+router.get('/test',(req,res)=>{
+    console.log(therapist_schedule.findAll(
+        {
+            include: 'therapists'
+        }
+    ));
 });
 
 module.exports = router;
