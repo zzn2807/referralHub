@@ -90,7 +90,6 @@ async function scheduleHandler(table, data){
                 if(overlap.length===0){
                     slot = {app_date: day, ...slot};
                     let newSlot = table.build(slot);
-                    console.log(JSON.stringify(newSlot));
                     newSlot.save();
                 }
                 else{
@@ -198,7 +197,6 @@ async function therapistHandler(table, data){
                 delete tableData[key];
             }
         }
-        console.log(tableData);
         await table.destroy({
             where: tableData
         });
@@ -228,9 +226,7 @@ async function therapistHandler(table, data){
             {
                 where: filter
             }
-        );
-        console.log(filter);
-        console.log(tableData);   
+        ); 
     }
     else if(data['user-action'].toLowerCase() === 'view'){
         let tableData =  (({'user-action': user_action, ...object})=>object)(data);
@@ -254,7 +250,7 @@ router.get('/therapists',(req,res)=>{
 
 router.post('/therapists',(req,res)=>{
     therapistHandler(therapists,req.body).then((msg)=>{
-        console.log(msg);
+
         res.render('therapist',msg);
     });
     

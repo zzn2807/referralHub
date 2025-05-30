@@ -47,7 +47,7 @@ block content
                         th Phone 
                         th Service
                     each row in view 
-                        tr 
+                        tr(onclick=`window.location= '/schedule/${row.id}';` style='cursor: pointer')
                             td= row.id 
                             td= row.first_name 
                             td= row.last_name 
