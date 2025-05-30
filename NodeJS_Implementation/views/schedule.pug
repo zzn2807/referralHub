@@ -1,0 +1,66 @@
+extends layout.pug
+
+block content
+    main
+        if therapists
+            form.form(action='/schedule' method='post')
+                h1.form-element Select Therapist
+                label.form-element(for='therapists') Therapist Name:
+                select#therapists.form-element(name='therapist')
+                    each therapist in therapists 
+                        option(value=therapist.id)= `${therapist.first_name} ${therapist.last_name}`
+                button.form-element(type='submit') Get schedule
+        else
+            if msg 
+                span(class= msgType)= msg
+            if therapist && !view
+                form.form(action='/schedule/'+therapist.id method='post')
+                    h1.form-element #{therapist.first_name} #{therapist.last_name} Schedule
+                    label.form-element(for='action') Action:
+                    select#action.form-element(name='user-action')
+                        option Add 
+                        option Update 
+                        option Delete
+                        option View
+                    label.form-element(for='client_first_name') Client First Name:
+                    div.flex.form-element.no-margin.no-padding
+                        input#client_first_name.form-element.flex-grow(type='text' name='client_first_name')
+                        input#client_first_name-check.flex-grow.checkbox.hidden(type='checkbox' name='client_first_name-check')
+                    label.form-element(for='client_last_name') Client Last Name:
+                    div.flex.form-element.no-margin.no-padding
+                        input#client_last_name.form-element.flex-grow(type='text' name='client_last_name')
+                    label.form-element(for='time_range_start') From (Time):
+                    div.flex.form-element.no-margin.no-padding
+                        input#time_range_start.form-element.flex-grow(type='time' name='time_range_start' required='required')
+                    label.form-element(for='time_range_end') To (Time):
+                    div.flex.form-element.no-margin.no-padding
+                        input#time_range_end.form-element.flex-grow(type='time' name='time_range_end' required='required')
+                    label.form-element(for='date_range_start') From (Date):
+                    div.flex.form-element.no-margin.no-padding
+                        input#date_range_start.form-element.flex-grow(type='date' name='date_range_start' required='required')
+                    label.form-element(for='date_range_end') To (Date):
+                    div.flex.form-element.no-margin.no-padding
+                        input#date_range_end.form-element.flex-grow(type='date' name='date_range_end' required='required')
+                    label.form-element(for='booked') Booked:
+                    select#booked.form-element(name='booked')
+                        option(value=0) No
+                        option(value=1) Yes 
+                    button.form-element.btn(type='submit') Submit Change
+                    script
+                        include ./scripts/therapist.js
+            if therapist && view 
+                h1 #{therapist.first_name} #{therapist.last_name} Schedule
+                div.table-div
+                    each date in Object.keys(view)
+                        h2.text-centered= date 
+                        table 
+                            tr 
+                                th Time 
+                                th Client First Name 
+                                th Client Last Name
+                            each slot in view[date]
+                                tr
+                                    td #{slot.start_time} - #{slot.end_time}
+                                    td= slot.client_first_name
+                                    td= slot.client_last_name
+                a(href='/schedule/'+therapist.id) Return
