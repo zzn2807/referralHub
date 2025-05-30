@@ -8,7 +8,7 @@ function initModels(sequelize) {
 
   therapist_schedule.belongsTo(therapists, { as: "therapist", foreignKey: "therapist_id"});
   therapists.hasMany(therapist_schedule, { as: "therapist_schedules", foreignKey: "therapist_id"});
-
+  therapist_schedule.removeAttribute('id');
   return {
     therapist_schedule,
     therapists,

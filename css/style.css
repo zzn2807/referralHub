@@ -130,7 +130,7 @@ a {
 
 
 
-.form {
+.form{
     background: #dddddd;
     flex-wrap: wrap;
     padding: 40px 5%;
@@ -196,6 +196,9 @@ a {
 .checkbox{   
     margin: 5px;
 }
+.text-centered{
+    text-align: center;
+}
 .negMsg,
 .posMsg{
     border-radius: 5px;
@@ -241,6 +244,18 @@ a {
     font-weight: bold;
 }
 
+.table-div{
+    background-color: #dddddd;
+    overflow-y: auto;
+    max-height: 50vh;
+    padding: 20px 40px;
+    margin: 5px;
+    max-width: 700px;
+    box-shadow:  0px 0px 3px black;
+}
+table {
+    margin-bottom: 20px;
+}
 td, th {
   border: 1px solid #ddd;
   padding: 8px;
@@ -248,6 +263,10 @@ td, th {
 
 tr:nth-child(even){
     background-color: #f2f2f2;
+}
+
+tr:nth-child(odd){
+    background-color: #aaa;
 }
 
 th {

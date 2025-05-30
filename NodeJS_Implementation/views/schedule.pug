@@ -48,3 +48,19 @@ block content
                     button.form-element.btn(type='submit') Submit Change
                     script
                         include ./scripts/therapist.js
+            if therapist && view 
+                h1 #{therapist.first_name} #{therapist.last_name} Schedule
+                div.table-div
+                    each date in Object.keys(view)
+                        h2.text-centered= date 
+                        table 
+                            tr 
+                                th Time 
+                                th Client First Name 
+                                th Client Last Name
+                            each slot in view[date]
+                                tr
+                                    td #{slot.start_time} - #{slot.end_time}
+                                    td= slot.client_first_name
+                                    td= slot.client_last_name
+                a(href='/schedule/'+therapist.id) Return
