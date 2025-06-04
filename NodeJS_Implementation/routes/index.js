@@ -7,7 +7,10 @@ const {therapist_schedule} = scheduling_db.models;
 const {user, pass} = require('../env');
 const fs = require('fs');
 const busboy = require('connect-busboy');
-
+const {
+    timeConvert24to12,
+    parseBody
+} = require('../includes/helpers')
 
 // Create a test account or replace with real credentials.
 const transporter = nodemailer.createTransport({
@@ -19,35 +22,8 @@ const transporter = nodemailer.createTransport({
       pass: pass,
     },
   });
-//Helper functions
-function capitalize(string){
-    let capString = string.length>1?string[0].toUpperCase()+string.substring(1,string.length):string.toUpperCase();
-    return capString;
-}
-function timeConvert24to12(time){
-    //Convert database 24 hour format to more user friendly 12 hour format
-    return `${+time.split(':')[0]>12?+time.split(':')[0]-12:+time.split(':')[0]}:${time.split(':')[1]}:${+time.split(':')[0]>=12?'PM':'AM'}`;
-}
-function timeConvert12to24(time){
-    //Convert 12-hour format back to 24 hour hh:mm:ss format
-    time = time.toUpperCase();
-    return `${time.includes("PM")?(+time.split(':')[0]%12+12).toString().padStart(2,'0'):(+time.split(':')[0]%12).toString().padStart(2,'0')}:${time.split(':')[1].slice(0,2)}:00`;
-}
-function parseBody(body){
-    let html = '<h1>Client Information</h1>\n';
-    body.slot = JSON.parse(body.slot);
-    
-    for(key of Object.keys(body)){
-        if(key!=='slot'){
-            html+= `<p>${key.split('-').join(' ').toUpperCase()}: ${body[key]}</p>\n`;
-        }
-    }
-    html += '<h1>Therapist/Appointment Details</h1>\n'
-    for(key of Object.keys(body.slot)){
-        html+= `<p>${key.split('_').join(' ').toUpperCase()}: ${body.slot[key]}</p>\n`;
-    }
-    return html;
-}
+
+
 //Routes
 router.get('/',(req,res)=>{
     //Find all possible services provided by the therapists and list them in a select menu
