@@ -1,0 +1,25 @@
+extends layout.pug
+block content
+    main
+        form(action='/test' method='get')
+            table
+                tr 
+                    th Client First Name 
+                    th Client Last Name 
+                    th Time 
+                tr#btnRow
+                    td(colspan=3)
+                        button#addRowBtn.flex-grow(type="button" onclick="addRow()" style="width:100%") Add Row
+        script(type='text/javascript').
+            function addRow(){
+                console.log('Adding Row')
+                let btn = document.getElementById('btnRow')
+                let newRowHtml = `
+                    <td><input type='text'></td>
+                    <td><input type='text'></td>
+                    <td><input type='text'>-<input type='text'></td>
+                    `
+                let newRow = document.createElement('tr')
+                newRow.innerHTML = newRowHtml
+                btn.insertAdjacentElement('beforebegin',newRow)
+            }

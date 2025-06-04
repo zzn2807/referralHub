@@ -82,7 +82,7 @@ router.post('/schedule/:id',(req,res)=>{
 });
 
 router.get('/test',(req,res)=>{
-    console.log(therapist_schedule.findAll());
+    res.render('test_view')
 });
 
 module.exports = router;
