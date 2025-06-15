@@ -134,15 +134,15 @@ a {
     background: #dddddd;
     flex-wrap: wrap;
     padding: 40px 5%;
-    width: 70%;
-    max-width: 700px;
+    width: 80%;
+    max-width: 900px;
     box-shadow:  0px 0px 3px black;
 }
 
 .form-element {
     padding: 5px;
     margin: 5px;
-    min-width: 90%;  
+    min-width: 95%;  
 }
 
 .btn {
@@ -198,6 +198,16 @@ a {
 }
 .text-centered{
     text-align: center;
+}
+.margin-l-5px{
+    margin-left: 5px;
+}
+.margin-r-5px{
+    margin-right: 5px;
+}
+.margin-both-5px{
+    margin-right: 5px;
+    margin-left: 5px;
 }
 .negMsg,
 .posMsg{

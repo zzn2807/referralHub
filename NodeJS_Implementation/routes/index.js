@@ -48,7 +48,7 @@ router.post('/time_slots',(req,res)=>{
     if(service && date){
         scheduling_db.query(`select therapists.first_name, therapists.last_name, therapist_schedule.start_time, therapist_schedule.end_time, therapist_schedule.app_date
 from therapists inner join therapist_schedule on therapists.id = therapist_schedule.therapist_id
-where service = '${service}' and therapist_schedule.booked = 0 and app_date = '${date}';`)
+where service = '${service}' and client_first_name is null and client_last_name is null and app_date = '${date}';`)
 .then(([result, metadata])=>{
     //Configure the resulting data into key value pairs where the keys are the therapists and the values are their free slots
     let available_times = {};

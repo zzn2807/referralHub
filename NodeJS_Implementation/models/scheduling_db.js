@@ -5,7 +5,7 @@ const sequelize = new Sequelize(
     'root', //Create db user
     'Root@123',//Set password
     {
-        host: '172.24.240.1',//Get host from which db will be accessed
+        host: '172.23.208.1',//Get host from which db will be accessed
         dialect: 'mysql',
         port: 3306//get db port
     } 
