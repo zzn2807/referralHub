@@ -3,43 +3,43 @@ extends layout.pug
 block content
     main
         form.form(action='/form_submit' method='post' enctype="multipart/form-data")
-            div.flex.form-element
+            div.flex.form-element.flex-wrap
                 input#ESMH_Referral.margin-r-5px(type="checkbox" name="ESMH_Referral" )
                 label.margin-r-5px.flex-grow(for="ESMH_Referral") ESMH Referral
                 input#Ofiice_Based_Referral.margin-both-5px(type="checkbox" name="Ofiice_Based_Referral" )
                 label.margin-r-5px.flex-grow(for="Ofiice_Based_Referral") Office Based Referral
                 input.margin-both-5px(type="checkbox" name="ESMH_Referral" id="DDA/BSS")
                 label.flex-grow(for="DDA/BSS") DDA/BSS
-            div.flex.form-element
+            div.flex.form-element.flex-wrap
                 label.margin-r-5px(for="Client_Name") Client Name:
                 input#Client_Name.flex-grow.rounded-corners(type="text" name="Client_Name")
-            div.flex.form-element
+            div.flex.form-element.flex-wrap
                 label.margin-r-5px(for="Client_DOB") Client DOB:
                 input#Client_DOB.flex-grow.rounded-corners(type="date" name="Client_DOB")
-            div.flex.form-element
+            div.flex.form-element.flex-wrap
                 label.margin-r-5px(for="Client_SSN") Client SSN:
                 input#Client_SSN.flex-grow.rounded-corners(type="date" name="Client_SSN")
-            div.flex.form-element
+            div.flex.form-element.flex-wrap
                 label.margin-r-5px(for="Teacher_Name_and_Grade") Teacher Name and Grade (For ESMH Only):
                 input#Teacher_Name_and_Grade.flex-grow.rounded-corners(type="text" name="Teacher_Name_and_Grade")
-            div.flex.form-element
+            div.flex.form-element.flex-wrap
                 label.margin-r-5px(for="Piff") Piff#:
                 input#Piff.flex-grow.rounded-corners(type="text" name="Piff")
-            div.flex.form-element
+            div.flex.form-element.flex-wrap
                 label.margin-r-5px(for="Todays_Date") Today's Date:
                 input#Todays_Date.flex-grow.rounded-corners(type="date" name="Todays_Date")
-            div.flex.form-element
+            div.flex.form-element.flex-wrap
                 label.margin-r-5px(for="Diagnosis") Diagnosis:
                 input#Diagnosis.flex-grow.rounded-corners(type="text" name="Diagnosis")
             fieldset.form-element
                 legend(style="text-decoration: underline;") Individual General and Guardian Information
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Preferred_Name") What does the individual prefer to be called?:
                     input#Preferred_Name.flex-grow.rounded-corners(type="text" name="Preferred_Name")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Previous_Names") Previous Names (ex. Maiden name):
                     input#Previous_Names.flex-grow.rounded-corners(type="text" name="Previous_Names")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Gender:
                     input#Male.margin-r-5px(type="radio" name="Gender" )
                     label.margin-r-5px.flex-grow(for="Male") Male
@@ -47,46 +47,46 @@ block content
                     label.margin-r-5px.flex-grow(for="Female") Female
                     input#Non-Binary.margin-both-5px(type="radio" name="Gender")
                     label.flex-grow(for="Non-Binary") Non-Binary
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Has the individual received mental health services in the past?:
                     input#Yes_MHS.margin-r-5px(type="radio" name="Past_Mental_Health_Services" )
                     label.margin-r-5px(for="Yes_MHS") Yes
                     input#No_MHS.margin-both-5px(type="radio" name="Past_Mental_Health_Services" )
                     label.margin-r-5px(for="No_MHS") No
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Last_Facility") If yes, what's the last facility attended:
                     input#Last_Facility.flex-grow.rounded-corners(type="text" name="Last_Facility")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Is the individual a former client?:
                     input#Yes_Former_Client.margin-r-5px(type="radio" name="Former_Client" )
                     label.margin-r-5px(for="Yes_Former_Client") Yes
                     input#No_Former_Client.margin-both-5px(type="radio" name="Former_Client" )
                     label.margin-r-5px(for="No_Former_Client") No
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Is the individual a Veteran?:
                     input#Yes_Veteran.margin-r-5px(type="radio" name="Veteran" )
                     label.margin-r-5px(for="Yes_Veteran") Yes
                     input#No_Veteran.margin-both-5px(type="radio" name="Veteran" )
                     label.margin-r-5px(for="No_Veteran") No
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Has the individual used tobacco in last 30 days?:
                     input#Yes_Tobacco.margin-r-5px(type="radio" name="Tobacco" )
                     label.margin-r-5px(for="Yes_Tobacco") Yes
                     input#No_Tobacco.margin-both-5px(type="radio" name="Tobacco" )
                     label.margin-r-5px(for="No_Tobacco") No
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Does the individual smoke cigarettes?:
                     input#Yes_Cigarettes.margin-r-5px(type="radio" name="Cigarettes" )
                     label.margin-r-5px(for="Yes_Cigarettes") Yes
                     input#No_Cigarettes.margin-both-5px(type="radio" name="Cigarettes" )
                     label.margin-r-5px(for="No_Cigarettes") No
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Was the individual screened for gambling?:
                     input#Yes_Gambling.margin-r-5px(type="radio" name="Gambling" )
                     label.margin-r-5px(for="Yes_Gambling") Yes
                     input#No_Gambling.margin-both-5px(type="radio" name="Gambling" )
                     label.margin-r-5px(for="No_Gambling") No
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Type of insurance:
                     input#No_Health_Coverage.margin-r-5px(type="radio" name="Insurance" )
                     label.margin-r-5px(for="No_Health_Coverage") No Health Coverage
@@ -96,77 +96,77 @@ block content
                     label.margin-r-5px(for="Medicaid_Other_than_Healthchoice") Medicaid (Other than Healthchoice)
                     input#Medicare.margin-both-5px(type="radio" name="Insurance" )
                     label.margin-r-5px(for="Medicare") Medicare
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="MA") MA#:
                     input#MA.flex-grow.rounded-corners(type="text" name="MA#")
                 label.form-element Or
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Insurance_No") Insurance#:
                     input#Insurance_No.flex-grow.rounded-corners(type="text" name="Insurance#")
             fieldset.form-element.flex-grow
                 legend(style="text-decoration: underline;") Mailing Address ( if different from the one on file), Phone and E-Mail
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Address_Line_1") Address Line 1:
                     input#Address_Line_1.flex-grow.rounded-corners(type="text" name="Address_Line_1")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Address_Line_2") Address Line 2:
                     input#Address_Line_2.flex-grow.rounded-corners(type="text" name="Address_Line_2")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="City") City:
                     input#City.flex-grow.rounded-corners(type="text" name="City")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="State") State:
                     input#State.flex-grow.rounded-corners(type="text" name="State")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Zip_Code") Zip Code:
                     input#Zip_Code.flex-grow.rounded-corners(type="text" name="Zip_Code")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Phone_Number") Phone Number:
                     input#Phone_Number.flex-grow.rounded-corners(type="tel" name="Phone_Number")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Phone_Type") Phone Type:
                     input#Phone_Type.flex-grow.rounded-corners(type="text" name="Phone_Type")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="E-mail") E-mail:
                     input#E-mail.flex-grow.rounded-corners(type="email" name="E-mail")
             fieldset.form-element.flex-grow
                 legend(style="text-decoration: underline;") Parent / Guardian / Social Services / Juvenile Services Contact Information
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Does the individual have a legal guardian?:
                     input#Yes_Legal_Guardian.margin-r-5px(type="radio" name="Legal_Guardian" )
                     label.margin-r-5px(for="Yes_Legal_Guardian") Yes
                     input#No_Legal_Guardian.margin-both-5px(type="radio" name="Legal_Guardian" )
                     label.margin-r-5px(for="No_Legal_Guardian") No
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Guardian_First_Name") Guardian First Name:
                     input#Guardian_First_Name.flex-grow.rounded-corners(type="text" name="Guardian_First_Name")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Guardian_Last_Name") Guardian Last Name:
                     input#Guardian_Last_Name.flex-grow.rounded-corners(type="text" name="Guardian_Last_Name")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Guardian_Address") Guardian Address:
                     input#Guardian_Address.flex-grow.rounded-corners(type="text" name="Guardian_Address")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Guardian_City") Guardian City:
                     input#Guardian_City.flex-grow.rounded-corners(type="text" name="Guardian_City")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Guardian_State") State:
                     input#Guardian_State.flex-grow.rounded-corners(type="text" name="Guardian_State")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Guardian_Zip_Code") Zip Code:
                     input#Guardian_Zip_Code.flex-grow.rounded-corners(type="text" name="Guardian_Zip_Code")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Guardian_Phone_Number") Guardian Phone Number:
                     input#Guardian_Phone_Number.flex-grow.rounded-corners(type="text" name="Guardian_Phone_Number")
             fieldset.form-element.flex-grow
                 legend(style="text-decoration: underline;") Individual - Required Data
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Ethnicity- Is the individual Hispanic, Latino or Spanish Origin?:
                     input.margin-r-5px(type="radio" name="Hispanic/Latino/Spanish_Origin" id= "Yes_Hispanic/Latino/Spanish_Origin")
                     label.margin-r-5px(for="Yes_Hispanic/Latino/Spanish_Origin") Yes
                     input.margin-r-5px(type="radio" name="Hispanic/Latino/Spanish_Origin" id= "No_Hispanic/Latino/Spanish_Origin")
                     label.margin-r-5px(for="No_Hispanic/Latino/Spanish_Origin") No
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Race:
                     input.margin-r-5px(type="radio" name="Race" id= "White_Race")
                     label.margin-r-5px(for="White_Race") White
@@ -178,7 +178,7 @@ block content
                     label.margin-r-5px(for="Asian_Race") Asian
                     input.margin-r-5px(type="radio" name="Race" id= "Native_Hawaiian/Other_Pacific_Islander_Race")
                     label.margin-r-5px(for="Native_Hawaiian/Other_Pacific_Islander_Race") Native Hawaiian/ Other Pacific Islander
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px If individual is multiracial, select other races(s):
                     input.margin-r-5px(type="checkbox" name="White_Other_Race" id= "White_Other_Race")
                     label.margin-r-5px(for="White_Other_Race") White
@@ -193,7 +193,7 @@ block content
             fieldset.form-element.flex-grow
                 legend(style="text-decoration: underline;") Language
                 label.margin-r-5px.form-element How well does the individual speak English? (5 years or older):
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     input.margin-r-5px(type="radio" name="English_Proficiency" id= "Very_Well_English_Proficiency")
                     label.margin-r-5px(for="Very_Well_English_Proficiency") Very Well
                     input.margin-r-5px(type="radio" name="English_Proficiency" id= "Well_English_Proficiency")
@@ -202,24 +202,24 @@ block content
                     label.margin-r-5px(for="Not_Well_English_Proficiency") Not Well
                     input.margin-r-5px(type="radio" name="English_Proficiency" id= "Not_At_All_English_Proficiency")
                     label.margin-r-5px(for="Not_At_All_English_Proficiency") Not At All
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Does individual need assistance with communicating in English?:
                     input#Yes_English_Assistance.margin-r-5px(type="radio" name="English_Assistance" )
                     label.margin-r-5px(for="Yes_English_Assistance") Yes
                     input#No_English_Assistance.margin-both-5px(type="radio" name="English_Assistance" )
                     label.margin-r-5px(for="No_English_Assistance") No
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Does the individual speak a language other than English at home? (5 years or older):
                     input#Yes_Other_Language.margin-r-5px(type="radio" name="Other_Language" )
                     label.margin-r-5px(for="Yes_Other_Language") Yes
                     input#No_Other_Language.margin-both-5px(type="radio" name="Other_Language" )
                     label.margin-r-5px(for="No_Other_Language") No
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Which_Language") If yes, which language?:
                     input#Which_Language.flex-grow.rounded-corners(type="text" name="Which_Language")
             fieldset.form-element.flex-grow
                 legend(style="text-decoration: underline;") Marital Status and Pregnancy
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Marital Status:
                     input.margin-r-5px(type="radio" name="Marital_Status" id= "Single_Marital_Status")
                     label.margin-r-5px(for="Single_Marital_Status") Single
@@ -233,7 +233,7 @@ block content
                     label.margin-r-5px(for="Widow/Widower_Marital_Status") Widow/Widower
                     input.margin-r-5px(type="radio" name="Marital_Status" id= "Not_Available_Marital_Status")
                     label.margin-r-5px(for="Not_Available_Marital_Status") Not Available
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Pregnancy:
                     input#Yes_Pregnancy.margin-r-5px(type="radio" name="Pregnancy" )
                     label.margin-r-5px(for="Yes_Pregnancy") Yes
@@ -241,61 +241,60 @@ block content
                     label.margin-r-5px(for="No_Pregnancy") No
             fieldset.form-element.flex-grow
                 legend(style="text-decoration: underline;") Education
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Did the individual attend school any time in the last 3 months?:
                     input#Yes_Attended_School_in_Last_3_Months.margin-r-5px(type="radio" name="Attended_School_in_Last_3_Months" )
                     label.margin-r-5px(for="Yes_Attended_School_in_Last_3_Months") Yes
                     input#No_Attended_School_in_Last_3_Months.margin-both-5px(type="radio" name="Attended_School_in_Last_3_Months" )
                     label.margin-r-5px(for="No_Attended_School_in_Last_3_Months") No
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="School_Attending") School Attending:
                     input#School_Attending.flex-grow.rounded-corners(type="text" name="School_Attending")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Education_Level") Educational level (Highest level of school completed):
                     input#Education_Level.flex-grow.rounded-corners(type="text" name="Education_Level")
             fieldset.form-element.flex-grow
                 legend(style="text-decoration: underline;") Disability Status
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Is the individual deaf or hard of hearing?:
                     input#Yes_Deaf_or_Hard_of_Hearing.margin-r-5px(type="radio" name="Deaf_or_Hard_of_Hearing" )
                     label.margin-r-5px(for="Yes_Deaf_or_Hard_of_Hearing") Yes
                     input#No_Deaf_or_Hard_of_Hearing.margin-both-5px(type="radio" name="Deaf_or_Hard_of_Hearing" )
                     label.margin-r-5px(for="No_Deaf_or_Hard_of_Hearing") No
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Is the individual blind or having serious difficulty seeing, even wearing glasses?:
                     input#Yes_Difficulty_Seeing.margin-r-5px(type="radio" name="Difficulty_Seeing" )
                     label.margin-r-5px(for="Yes_Difficulty_Seeing") Yes
                     input#No_Difficulty_Seeing.margin-both-5px(type="radio" name="Difficulty_Seeing" )
                     label.margin-r-5px(for="No_Difficulty_Seeing") No
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Because of physical, mental, or emotional conditions, Is the individual having serious difficulty concentrating, remembering or making decisions? (5 years or older):
                     input#Yes_Difficulty_Concentrating_Remembering_Or_Making_Decisions.margin-r-5px(type="radio" name="Difficulty_Concentrating_Remembering_Or_Making_Decisions" )
                     label.margin-r-5px(for="Yes_Difficulty_Concentrating_Remembering_Or_Making_Decisions") Yes
                     input#No_Difficulty_Concentrating_Remembering_Or_Making_Decisions.margin-both-5px(type="radio" name="Difficulty_Concentrating_Remembering_Or_Making_Decisions" )
                     label.margin-r-5px(for="No_Difficulty_Concentrating_Remembering_Or_Making_Decisions") No
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Is the individual having serious difficulty walking or climbing stairs? (5 years or older):
                     input#Yes_Difficulty_Walking_or_Climbing_Stairs.margin-r-5px(type="radio" name="Difficulty_Walking_or_Climbing_Stairs" )
                     label.margin-r-5px(for="Yes_Difficulty_Walking_or_Climbing_Stairs") Yes
                     input#No_Difficulty_Walking_or_Climbing_Stairs.margin-both-5px(type="radio" name="Difficulty_Walking_or_Climbing_Stairs" )
                     label.margin-r-5px(for="No_Difficulty_Walking_or_Climbing_Stairs") No
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Is the individual having difficulty dressing or bathing (5 years or older):
                     input#Yes_Difficulty_Dressing_or_Bathing.margin-r-5px(type="radio" name="Difficulty_Dressing_or_Bathing" )
                     label.margin-r-5px(for="Yes_Difficulty_Dressing_or_Bathing") Yes
                     input#No_Difficulty_Dressing_or_Bathing.margin-both-5px(type="radio" name="Difficulty_Dressing_or_Bathing" )
                     label.margin-r-5px(for="No_Difficulty_Dressing_or_Bathing") No
-                div.flex.form-element
-                    label.margin-r-5px Because of a physical, mental or emotional condition, is the individual having serious difficulty doing errands alone such
-as visiting a doctor’s office or shopping? (15 years or older):
+                div.flex.form-element.flex-wrap
+                    label.margin-r-5px Because of a physical, mental or emotional condition, is the individual having serious difficulty doing errands alone such as visiting a doctor’s office or shopping? (15 years or older):
                     input#Yes_Difficulty_Doing_Errands_Alone.margin-r-5px(type="radio" name="Difficulty_Doing_Errands_Alone" )
                     label.margin-r-5px(for="Yes_Difficulty_Doing_Errands_Alone") Yes
                     input#No_Difficulty_Doing_Errands_Alone.margin-both-5px(type="radio" name="Difficulty_Doing_Errands_Alone" )
                     label.margin-r-5px(for="No_Difficulty_Doing_Errands_Alone") No
             fieldset.form-element.flex-grow
                 legend(style="text-decoration: underline;") Employment Status
-                div.flex.form-element
-                    label.margin-r-5px Employment Status
+                div.flex.form-element.flex-wrap
+                    label.margin-r-5px Employment Status:
                     input#Full-Time.margin-r-5px(type="radio" name="Employment_Status" )
                     label.margin-r-5px(for="Full-Time") Full-Time
                     input#Part-Time.margin-r-5px(type="radio" name="Employment_Status" )
@@ -316,7 +315,7 @@ as visiting a doctor’s office or shopping? (15 years or older):
                     label.margin-r-5px(for="Other_Unemployment_Or_Not_Seeking_Employment") Other unemployment/ Not seeking employment
                     input#Other_Unemployment_Or_Seeking_Work.margin-r-5px(type="radio" name="Employment_Status" )
                     label.margin-r-5px(for="Other_Unemployment_Or_Seeking_Work") Other unemployment/ seeking work    
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Primary Source of Income:
                     input#Wages_Or_Salary.margin-r-5px(type="radio" name="Primary_Source_Of_Income" )
                     label.margin-r-5px(for="Wages_Or_Salary") Wages/Salary
@@ -334,7 +333,7 @@ as visiting a doctor’s office or shopping? (15 years or older):
                     label.margin-r-5px(for="Other") Other
             fieldset.form-element.flex-grow
                 legend(style="text-decoration: underline;") Other Information
-                 div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px What is the individual's living arrangement?
                     input#Private_Residence.margin-r-5px(type="radio" name="Living_Arrangement" )
                     label.margin-r-5px(for="Private_Residence") Private Residence
@@ -350,24 +349,24 @@ as visiting a doctor’s office or shopping? (15 years or older):
                     label.margin-r-5px(for="Homeless_Shelter") Homeless Shelter
                     input#Other.margin-r-5px(type="radio" name="Living_Arrangement" )
                     label.margin-r-5px(for="Other") Other
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Was the individual homeless in the last 6 months?:
                     input#Yes_Homeless_In_Last_6_Months.margin-r-5px(type="radio" name="Homeless_In_Last_6_Months" )
                     label.margin-r-5px(for="Yes_Homeless_In_Last_6_Months") Yes
                     input#No_Homeless_In_Last_6_Months.margin-both-5px(type="radio" name="Homeless_In_Last_6_Months" )
                     label.margin-r-5px(for="No_Homeless_In_Last_6_Months") No
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Times_In_Self-Help_Support_In_30_Days") Number of times in Self-Help support group in the past 30 days:
                     input#Times_In_Self-Help_Support_In_30_Days.flex-grow.rounded-corners(type="text" name="Times_In_Self-Help_Support_In_30_Days")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Arrests_Within_30_Days") Number of arrests within the past 30 days:
                     input#Arrests_Within_30_Days.flex-grow.rounded-corners(type="text" name="Arrests_Within_30_Days")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Dependent_Children") Number of dependent children:
                     input#Dependent_Children.flex-grow.rounded-corners(type="text" name="Dependent_Children")
             fieldset.form-element.flex-grow
                 legend(style="text-decoration: underline;") Substance Use Information
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Please confirm individual’s substance use history:
                     input#Yes_Has_History_of_SUD.margin-r-5px(type="radio" name="Has_History_of_SUD" )
                     label.margin-r-5px(for="Yes_Has_History_of_SUD") Yes, individual had history of SUD
@@ -375,7 +374,7 @@ as visiting a doctor’s office or shopping? (15 years or older):
                     label.margin-r-5px(for="No_Homeless_In_Last_6_Months") No, individual does not have history if SUD
             fieldset.form-element.flex-grow
                 legend(style="text-decoration: underline;") Referral Information
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Preferred Location For Services:
                     input#Woodlawn_Preferred_Location.margin-r-5px(type="radio" name="Preferred_Service_Location" )
                     label.margin-r-5px(for="Woodlawn_Preferred_Location") Woodlawn
@@ -383,21 +382,21 @@ as visiting a doctor’s office or shopping? (15 years or older):
                     label.margin-r-5px(for="Greenspring_Preferred_Location") Greenspring
                     input#Carroll_County_Preferred_Location.margin-r-5px(type="radio" name="Preferred_Service_Location" )
                     label.margin-r-5px(for="Carroll_County_Preferred_Location") Carroll County
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Referral_Source") Referral Source:
                     input#Referral_Source.flex-grow.rounded-corners(type="text" name="Referral_Source")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="Reason_For_Referral") Reason for referral:
                     input#Reason_For_Referral.flex-grow.rounded-corners(type="text" name="Reason_For_Referral")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="DSS_Worker") DSS Worker:
                     input#DSS_Worker.flex-grow.rounded-corners(type="text" name="DSS_Worker")
-                    div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px(for="DSS_Worker_Contact_Number") DSS Worker Contact Number:
                     input#DSS_Worker_Contact_Number.flex-grow.rounded-corners(type="tel" name="DSS_Worker_Contact_Number")
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Are you interested in:
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Psychiatry Services:
                     input#Yes_Psychiatry_Services.margin-r-5px(type="radio" name="Psychiatry_Services" )
                     label.margin-r-5px(for="Yes_Psychiatry_Services") Yes
@@ -405,7 +404,7 @@ as visiting a doctor’s office or shopping? (15 years or older):
                     label.margin-r-5px(for="No_Psychiatry_Services") No
                     input#Maybe_Psychiatry_Services.margin-r-5px(type="radio" name="Psychiatry_Services" )
                     label.margin-r-5px(for="Maybe_Psychiatry_Services") Maybe
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px Supportive Services:
                     input#Yes_Supportive_Services.margin-r-5px(type="radio" name="Supportive_Services" )
                     label.margin-r-5px(for="Yes_Supportive_Services") Yes
@@ -413,7 +412,7 @@ as visiting a doctor’s office or shopping? (15 years or older):
                     label.margin-r-5px(for="No_Supportive_Services") No
                     input#Maybe_Supportive_Services.margin-r-5px(type="radio" name="Supportive_Services" )
                     label.margin-r-5px(for="Maybe_Supportive_Services") Maybe
-                div.flex.form-element
+                div.flex.form-element.flex-wrap
                     label.margin-r-5px PRP:
                     input#Yes_PRP.margin-r-5px(type="radio" name="PRP" )
                     label.margin-r-5px(for="Yes_PRP") Yes
