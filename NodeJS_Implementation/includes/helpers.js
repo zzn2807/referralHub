@@ -21,7 +21,7 @@ function parseBody(body){
     
     for(key of Object.keys(body)){
         if(key!=='slot'){
-            html+= `<p>${key.split('-').join(' ').toUpperCase()}: ${body[key]}</p>\n`;
+            html+= `<p>${key.split('_').join(' ').toUpperCase()}: ${body[key]}</p>\n`;
         }
     }
     html += '<h1>Therapist/Appointment Details</h1>\n'
